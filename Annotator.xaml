@@ -1,0 +1,43 @@
+﻿<Page
+    x:Class="Video_Annotation.Annotator"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Video_Annotation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" KeyDown="Page_KeyDown" GotFocus="Page_GotFocus" LostFocus="Page_LostFocus">
+
+    <Grid>
+        <MediaElement x:Name="Playback" AutoPlay="False" KeyDown="Page_KeyDown" Margin="0,0,0,162" MediaOpened="Playback_MediaOpened"/>
+        <Button x:Name="CmdPlay" Content="Play" Click="Play_Click" HorizontalAlignment="Left" Height="50" Width="100" FontSize="24" VerticalAlignment="Bottom" Margin="25,0,0,25"/>
+        <Canvas x:Name="annotation_map" Height="50" Margin="150,0,40,25" VerticalAlignment="Bottom" />
+        <Canvas x:Name="annotation_row" Height="40" Margin="150,0,10,60" VerticalAlignment="Bottom">
+            <!--
+                <Grid Width="120" Height="40" HorizontalAlignment="Left">
+                    <Rectangle Fill="Yellow" Height="30" RadiusX="10" RadiusY="10" />
+                    <Polygon Fill="Yellow" Points="10,30 10,40 30,30" />
+                    <TextBlock Margin="5,10,5,5" Text="Frustration" Foreground="Black"/>
+                    <Button HorizontalAlignment="Right" Content="🗑️" Margin="0,0,5,0" />
+                </Grid>
+            -->
+        </Canvas>
+        <Slider x:Name="Searcher" Height="50" Margin="150,0,40,25" VerticalAlignment="Bottom" Maximum="100" ValueChanged="Searcher_ValueChanged"/>
+        <Grid Margin="10,843,-10,105">
+            <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Udtrykte følelse:" VerticalAlignment="Center"/>
+            <ComboBox x:Name="NotationCombo" Margin="137,0,0,0" Width="500" VerticalAlignment="Center" SelectionChanged="ComboBox_SelectionChanged">
+                <!--<TextBlock Text="Neutral"/>-->
+                <TextBlock Text="Forvirring" Foreground="Yellow"/>
+                <TextBlock Text="Frustration" Foreground="Red"/>
+                <TextBlock Text="Kedsomhed" Foreground="Blue"/>
+                <TextBlock Text="Andet" Foreground="Gray"/>
+            </ComboBox>
+            <Button x:Name="NotationCmd" Content="Start" Margin="642,0,0,0" Width="108" Click="NotationCmd_Click" IsEnabled="False"/>
+            <TextBlock HorizontalAlignment="Left" Margin="755,0,0,0" TextWrapping="Wrap" Text="Start tid:" VerticalAlignment="Center"/>
+            <TextBox x:Name="startTimeTxt" HorizontalAlignment="Left" Margin="812,0,0,0" Text="0" VerticalAlignment="Center" Width="140" IsReadOnly="True" TextAlignment="Right"/>
+            <TextBlock HorizontalAlignment="Left" Margin="957,0,0,0" TextWrapping="Wrap" Text="Slut tid:" VerticalAlignment="Center"/>
+            <TextBox x:Name="endTimeTxt" HorizontalAlignment="Left" Margin="1009,0,0,0" Text="0" VerticalAlignment="Center" Width="140" IsReadOnly="True" TextAlignment="Right"/>
+            <Button x:Name="SaveCmd" Content="Gam annotationer" Margin="1331,0,0,0" Width="144" Click="SaveCmd_Click"/>
+        </Grid>
+    </Grid>
+</Page>
