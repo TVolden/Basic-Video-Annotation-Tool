@@ -26,11 +26,7 @@
         <Grid Margin="10,843,-10,105">
             <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Udtrykte følelse:" VerticalAlignment="Center"/>
             <ComboBox x:Name="NotationCombo" Margin="137,0,0,0" Width="500" VerticalAlignment="Center" SelectionChanged="ComboBox_SelectionChanged">
-                <!--<TextBlock Text="Neutral"/>-->
-                <TextBlock Text="Forvirring" Foreground="Yellow"/>
-                <TextBlock Text="Frustration" Foreground="Red"/>
-                <TextBlock Text="Kedsomhed" Foreground="Blue"/>
-                <TextBlock Text="Andet" Foreground="Gray"/>
+
             </ComboBox>
             <Button x:Name="NotationCmd" Content="Start" Margin="642,0,0,0" Width="108" Click="NotationCmd_Click" IsEnabled="False"/>
             <TextBlock HorizontalAlignment="Left" Margin="755,0,0,0" TextWrapping="Wrap" Text="Start tid:" VerticalAlignment="Center"/>
